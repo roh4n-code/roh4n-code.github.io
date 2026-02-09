@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rohan Reddy Devarapalli - Computer Science Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --midnight: #0a0e27;
+            --electric: #00f0ff;
+            --accent-pink: #ff006e;
+            --cream: #fef9f3;
+            --soft-gray: #8892a6;
+            --card-bg: #151933;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            background: var(--midnight);
+            color: var(--cream);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated background gradient */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(0, 240, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 0, 110, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+            animation: gradientShift 15s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header/Hero Section */
+        header {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 4rem 0;
+        }
+
+        .hero-content {
+            text-align: left;
+            max-width: 900px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-label {
+            font-size: 0.9rem;
+            color: var(--electric);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            animation: fadeInUp 1s ease-out 0.2s backwards;
+        }
+
+        h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--electric) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 1s ease-out 0.4s backwards;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            color: var(--soft-gray);
+            margin-bottom: 2rem;
+            font-weight: 400;
+            animation: fadeInUp 1s ease-out 0.6s backwards;
+        }
+
+        .hero-meta {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 2.5rem;
+            animation: fadeInUp 1s ease-out 0.8s backwards;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--soft-gray);
+            font-size: 0.95rem;
+        }
+
+        .meta-item strong {
+            color: var(--cream);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 1s backwards;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Bricolage Grotesque', sans-serif;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--electric), var(--accent-pink));
+            color: var(--midnight);
+            box-shadow: 0 10px 30px rgba(0, 240, 255, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 240, 255, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--cream);
+            border: 2px solid var(--electric);
+        }
+
+        .btn-secondary:hover {
+            background: var(--electric);
+            color: var(--midnight);
+            transform: translateY(-3px);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .section-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--electric), transparent);
+        }
+
+        /* Experience Cards */
+        .experience-grid {
+            display: grid;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 2.5rem;
+            border: 1px solid rgba(0, 240, 255, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 240, 255, 0.05), rgba(255, 0, 110, 0.05));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: var(--electric);
+            box-shadow: 0 20px 60px rgba(0, 240, 255, 0.2);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--cream);
+            margin-bottom: 0.5rem;
+        }
+
+        .card-org {
+            color: var(--electric);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .card-date {
+            color: var(--soft-gray);
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+
+        .card-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-content ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .card-content li {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            color: var(--soft-gray);
+            line-height: 1.7;
+        }
+
+        .card-content li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--electric);
+            font-size: 1.2rem;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 1.5rem;
+        }
+
+        .tag {
+            padding: 0.4rem 1rem;
+            background: rgba(0, 240, 255, 0.1);
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--electric);
+            font-weight: 500;
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .project-link {
+            color: var(--accent-pink);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            transform: translateX(5px);
+            color: var(--electric);
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .skill-category {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 240, 255, 0.1);
+        }
+
+        .skill-category h3 {
+            color: var(--electric);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .skill-item {
+            padding: 0.5rem 1rem;
+            background: rgba(0, 240, 255, 0.05);
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: var(--cream);
+        }
+
+        /* Education */
+        .education-grid {
+            display: grid;
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .education-item {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid var(--electric);
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .education-details h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--cream);
+        }
+
+        .education-details p {
+            color: var(--soft-gray);
+        }
+
+        .education-score {
+            text-align: right;
+        }
+
+        .score-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--electric);
+        }
+
+        .score-label {
+            font-size: 0.85rem;
+            color: var(--soft-gray);
+        }
+
+        /* Contact Section */
+        #contact {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-content {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1.5rem;
+            background: var(--card-bg);
+            border-radius: 15px;
+            min-width: 200px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: var(--cream);
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+            background: rgba(0, 240, 255, 0.1);
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 0;
+            border-top: 1px solid rgba(0, 240, 255, 0.1);
+            color: var(--soft-gray);
+        }
+
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+
+        .scroll-indicator::before {
+            content: '↓';
+            font-size: 2rem;
+            color: var(--electric);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+
+            section {
+                padding: 4rem 0;
+            }
+
+            .hero-meta {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .education-item {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .education-score {
+                text-align: center;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Selection */
+        ::selection {
+            background: var(--electric);
+            color: var(--midnight);
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <header>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-label">Computer Science Engineer</div>
+                <h1>Rohan Reddy<br>Devarapalli</h1>
+                <p class="hero-subtitle">Building the future of blockchain & distributed systems</p>
+                
+                <div class="hero-meta">
+                    <div class="meta-item">
+                        <strong>CGPA:</strong> 8.45
+                    </div>
+                    <div class="meta-item">
+                        <strong>Graduating:</strong> 2027
+                    </div>
+                    <div class="meta-item">
+                        <strong>Location:</strong> Hyderabad, India
+                    </div>
+                </div>
+
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn btn-primary">Get in Touch</a>
+                    <a href="#projects" class="btn btn-secondary">View Work</a>
+                </div>
+            </div>
+            <div class="scroll-indicator"></div>
+        </div>
+    </header>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title">Experience</h2>
+            
+            <div class="experience-grid">
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <div class="card-title">Summer Intern</div>
+                            <div class="card-org">Centre for Development of Advanced Computing (CDAC)</div>
+                        </div>
+                        <div class="card-date">May 2025 - Jul 2025</div>
+                    </div>
+                    <div class="card-content">
+                        <p style="color: var(--cream); margin-bottom: 1rem; font-weight: 600;">National Blockchain Service (BaaS) by MeitY, Govt. of India</p>
+                        <ul>
+                            <li>Developed and deployed smart contracts (chaincodes) on Hyperledger Fabric, enabling secure and modular logic execution across permissioned networks</li>
+                            <li>Integrated blockchain oracles to fetch and validate trusted off-chain data, and built a compute-enabled oracle POC supporting verifiable off-chain computations</li>
+                            <li>Researched and applied Zero-Knowledge Proofs (ZKPs) to enhance privacy and trust in enterprise blockchain applications</li>
+                        </ul>
+                        <div class="tech-tags">
+                            <span class="tag">Hyperledger Fabric</span>
+                            <span class="tag">Docker</span>
+                            <span class="tag">Java</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">Blockchain Oracles</span>
+                            <span class="tag">Zero-Knowledge Proofs</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            
+            <div class="projects-grid">
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <div class="card-title">Fairness-Enhanced UAV-Assisted RIS Networks</div>
+                        </div>
+                        <div class="card-date">Jan 2025 - Apr 2025</div>
+                    </div>
+                    <div class="card-content">
+                        <p style="color: var(--soft-gray); margin-bottom: 1rem;">Research on fairness optimization in 6G UAV-RIS networks under Prof. Nikumani Choudhury</p>
+                        <ul>
+                            <li>Developed a NOMA-based power allocation model maximizing Jain's Fairness Index</li>
+                            <li>Submitted paper to IEEE Globecom 2025</li>
+                        </ul>
+                        <div class="tech-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">MATLAB</span>
+                            <span class="tag">LaTeX</span>
+                            <span class="tag">6G Networks</span>
+                        </div>
+                        <a href="#" class="project-link">View Paper →</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <div class="card-title">Exampartus</div>
+                        </div>
+                        <div class="card-date">Mar 2025 - Apr 2025</div>
+                    </div>
+                    <div class="card-content">
+                        <p style="color: var(--soft-gray); margin-bottom: 1rem;">Campus-wide lecture sharing platform</p>
+                        <ul>
+                            <li>Developed a responsive web platform for sharing recorded lectures</li>
+                            <li>Reached 1,000+ active users with seamless cross-device access</li>
+                        </ul>
+                        <div class="tech-tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Firebase</span>
+                            <span class="tag">Vercel</span>
+                        </div>
+                        <a href="#" class="project-link">Live Demo →</a>
+                        <a href="#" class="project-link">GitHub →</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <div class="card-title">Planit - 2D Floor Planner</div>
+                        </div>
+                        <div class="card-date">Aug 2024 - Nov 2024</div>
+                    </div>
+                    <div class="card-content">
+                        <p style="color: var(--soft-gray); margin-bottom: 1rem;">Full-featured SaaS product for interactive floor planning</p>
+                        <ul>
+                            <li>Built entirely using native Java with custom-designed Swing GUI</li>
+                            <li>Feature-rich interface for 2D architectural planning</li>
+                        </ul>
+                        <div class="tech-tags">
+                            <span class="tag">Java</span>
+                            <span class="tag">Swing</span>
+                            <span class="tag">GUI Development</span>
+                        </div>
+                        <a href="#" class="project-link">GitHub →</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <div class="card-title">Pharmacy Chain DBMS</div>
+                        </div>
+                        <div class="card-date">Mar 2025 - Apr 2025</div>
+                    </div>
+                    <div class="card-content">
+                        <p style="color: var(--soft-gray); margin-bottom: 1rem;">Database system for pharmacy operations</p>
+                        <ul>
+                            <li>Developed database-backed system simulating real-world pharmacy operations</li>
+                            <li>Built functional user interface for comprehensive management</li>
+                        </ul>
+                        <div class="tech-tags">
+                            <span class="tag">MySQL</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">HTML/CSS</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                        <a href="#" class="project-link">GitHub →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Languages</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">C</span>
+                        <span class="skill-item">C++</span>
+                        <span class="skill-item">Java</span>
+                        <span class="skill-item">Python</span>
+                        <span class="skill-item">JavaScript</span>
+                        <span class="skill-item">SQL</span>
+                        <span class="skill-item">Assembly</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Web Technologies</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">HTML</span>
+                        <span class="skill-item">CSS</span>
+                        <span class="skill-item">Node.js</span>
+                        <span class="skill-item">Firebase</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Blockchain & Tools</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">Hyperledger Fabric</span>
+                        <span class="skill-item">Docker</span>
+                        <span class="skill-item">Git</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Other</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">MATLAB</span>
+                        <span class="skill-item">LaTeX</span>
+                        <span class="skill-item">MySQL</span>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 3rem;">
+                <h3 style="color: var(--electric); margin-bottom: 1.5rem; font-size: 1.3rem;">Core Subjects</h3>
+                <div class="tech-tags">
+                    <span class="tag">Data Structures & Algorithms</span>
+                    <span class="tag">Object-Oriented Programming</span>
+                    <span class="tag">Database Systems</span>
+                    <span class="tag">Digital Design</span>
+                    <span class="tag">Computer Programming</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            
+            <div class="education-grid">
+                <div class="education-item">
+                    <div class="education-details">
+                        <h3>B.E. Computer Science Engineering</h3>
+                        <p style="color: var(--electric); font-weight: 600; margin-top: 0.3rem;">BITS Pilani, Hyderabad Campus</p>
+                        <p style="margin-top: 0.5rem;">Expected Graduation: 2027</p>
+                        <p style="margin-top: 0.3rem; font-size: 0.95rem;">Minor in Finance (CGPA: 9.5)</p>
+                    </div>
+                    <div class="education-score">
+                        <div class="score-value">8.45</div>
+                        <div class="score-label">CGPA</div>
+                    </div>
+                </div>
+
+                <div class="education-item">
+                    <div class="education-details">
+                        <h3>Class XII - PCM</h3>
+                        <p style="color: var(--electric); font-weight: 600; margin-top: 0.3rem;">FIITJEE Junior College</p>
+                        <p style="margin-top: 0.5rem;">Telangana Board of Intermediate Education (TSBIE)</p>
+                        <p style="margin-top: 0.3rem;">2023</p>
+                    </div>
+                    <div class="education-score">
+                        <div class="score-value">971</div>
+                        <div class="score-label">Marks</div>
+                    </div>
+                </div>
+
+                <div class="education-item">
+                    <div class="education-details">
+                        <h3>Class X</h3>
+                        <p style="color: var(--electric); font-weight: 600; margin-top: 0.3rem;">Meridian School</p>
+                        <p style="margin-top: 0.5rem;">CBSE</p>
+                        <p style="margin-top: 0.3rem;">2021</p>
+                    </div>
+                    <div class="education-score">
+                        <div class="score-value">469</div>
+                        <div class="score-label">Marks</div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 3rem;">
+                <h3 style="color: var(--electric); margin-bottom: 1.5rem; font-size: 1.3rem;">Test Scores</h3>
+                <div class="projects-grid">
+                    <div class="skill-category">
+                        <h3>JEE Mains</h3>
+                        <p style="color: var(--cream); font-size: 1.5rem; font-weight: 700; margin-top: 0.5rem;">Rank: 5802</p>
+                        <p style="color: var(--soft-gray); font-size: 0.9rem; margin-top: 0.3rem;">Jan 29, 2023</p>
+                    </div>
+                    <div class="skill-category">
+                        <h3>JEE Advanced</h3>
+                        <p style="color: var(--cream); font-size: 1.5rem; font-weight: 700; margin-top: 0.5rem;">Rank: 6393</p>
+                        <p style="color: var(--soft-gray); font-size: 0.9rem; margin-top: 0.3rem;">May 26, 2023</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Section -->
+    <!-- <section id="leadership">
+        <div class="container">
+            <h2 class="section-title">Leadership</h2>
+            
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <div class="card-title">Verification Coordinator</div>
+                        <div class="card-org">Admission Division, BITS Hyderabad</div>
+                    </div>
+                    <div class="card-date">Aug 2024</div>
+                </div>
+                <div class="card-content">
+                    <p style="color: var(--soft-gray);">Contributed to educational initiatives and student verification processes</p>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="contact-content">
+                <h2 class="section-title">Let's Connect</h2>
+                <p style="color: var(--soft-gray); font-size: 1.2rem; max-width: 600px; margin: 0 auto;">
+                    Open to internships, research collaborations, and exciting opportunities in blockchain and distributed systems.
+                </p>
+
+                <div class="contact-links">
+                    <a href="mailto:f20230138@hyderabad.bits-pilani.ac.in" class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div style="font-weight: 600;">Email</div>
+                        <div style="font-size: 0.85rem; color: var(--soft-gray);">f20230138@hyderabad.bits-pilani.ac.in</div>
+                    </a>
+
+                    <a href="#" class="contact-item">
+                        <div class="contact-icon">💻</div>
+                        <div style="font-weight: 600;">GitHub</div>
+                        <div style="font-size: 0.85rem; color: var(--soft-gray);">View Profile</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Rohan Reddy Devarapalli. Built with passion for innovation.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem;">Computer Science Engineer | Blockchain Enthusiast | Problem Solver</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll with offset
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards
+        document.querySelectorAll('.card, .education-item, .skill-category').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
